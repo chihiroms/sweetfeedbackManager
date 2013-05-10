@@ -1,0 +1,102 @@
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<script src="/func.js"></script>
+
+<script>
+var socket = io.connect('http://209.129.244.24:9999/');
+
+socket.on('connect', function(){
+    alert("You are connected.");
+    $('#connecting').html("You are online.");
+});
+
+
+socket.on('updategraph', function(nickname, data) {
+
+    var div_name = 'div_' + nickname;      
+    var canvas_name = 'graph_' + nickname;      
+    var gm_name = 'gm_' + nickname;
+
+    if (!$("#" + div_name).length) {
+
+	drawGraph(canvas_name, data);
+
+	updateGumball(div_name, data[0]);
+    }
+    else {
+      createElements(nickname);console.log("aa");
+    var canvas_name = 'div_' + name;
+    $('<canvas>').attr({id: canvas_name, class: "graph", width: 400 + 'px', height: 300 + 'px'}).css({}).insertAfter('.graph:last');
+
+
+    }
+});
+
+
+function createElements(nickname) {
+
+    var div_name = 'div_' + nickname;      
+    var canvas_name = 'graph_' + nickname;      
+    var gm_name = 'gm_' + nickname;
+
+    $('.div_nickname').html(nickname);
+
+    $('<div>').attr({id: div_name, class: "div_nickname"}).css({}).insertAfter('.div_nickname:last');
+    $('<div>').attr({id: div_name, class: "div_nickname"}).css({}).insertAfter('.div_nickname:last');
+    $(div_name).html(nickname);
+
+    createGraph(name);
+}
+
+
+function createGraph (name) {
+    var canvas_name = 'graph_' + name;
+    $('<canvas>').attr({id: canvas_name, class: "graph", width: 400 + 'px', height: 300 + 'px'}).css({}).insertAfter('.graph:last');
+}
+
+function createGumball (name, top, left) {
+
+    var div_name = 'gm_' + name;
+    if (!$("#" + div_name).length) {
+	$('<div>').attr({ id: div_name, class:"gumball" }
+		       ).css({ "position": "absolute", "top": top + "px", "left": left + "px"}
+			    ).insertAfter('.gumball:last');
+
+	$('<img>').attr({ id: "gmbody", src: "img/gm.png" }).css({"position":"absolute", "top":"0px", "left":"0px"}).appendTo("#" + div_name);
+	$('<img>').attr({ id: "cold", src: "img/hat.png" }).css({"position":"absolute", "top":"0px", "left":"0px"}).appendTo("#" + div_name);
+	$('<img>').attr({ id: "hot", src: "img/sweat.png" }).css({"position":"absolute", "top":"0px", "left":"0px"}).appendTo("#" + div_name);
+	$('<img>').attr({ id: "noisy", src: "img/headphone.png" }).css({"position":"absolute", "top":"0px", "left":"0px"}).appendTo("#" + div_name);
+	$('<img>').attr({ id: "privacy", src: "img/mask.png" }).css({"position":"absolute", "top":"0px", "left":"0px"}).appendTo("#" + div_name);
+	$('<img>').attr({ id: "bright", src: "img/sunglasses.png" }).css({"position":"absolute", "top":"0px", "left":"0px"}).appendTo("#" + div_name);
+	$('<p>'+ name +'</p>').css({"position":"absolute", "top":"86px", "left":"85px", "background-color":"white"}).appendTo("#" + div_name);
+
+/*
+	$("#" + div_name).click(function() {
+	    alert("give chihiro candy?");
+	    socket.emit('gmclicked', name);
+	});
+*/
+    }
+}
+
+
+function initGumball (name) {
+    $("#gm_" + name + " #cold").hide();
+    $("#gm_" + name + " #hot").hide();
+    $("#gm_" + name + " #noisy").hide();
+    $("#gm_" + name + " #privacy").hide()
+    $("#gm_" + name + " #bright").hide();
+
+    $("#gm_" + name + " #gmbody").css({"opacity": 0.4});
+}
+</script>
+
+
+<div id="connecting"> Connecting... please wait for seconds.</div>
+<div id="graphs">
+<div class="graph"></div>
+</div>
+
+
+
+
