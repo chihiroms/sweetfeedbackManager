@@ -21,6 +21,9 @@ socket.on('connect', function(){
     $('#connecting').html("You are online.");
 });
 
+socket.on('update', function(nickname) {
+    alert("Hello " + nickname + " :)");
+}
 
 socket.on('updategraph', function(nickname, data) {
 

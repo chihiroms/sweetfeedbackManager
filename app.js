@@ -13,7 +13,7 @@ var gumball_data_array = {}; // gumball_data_array["Ted"][0] = "11,323,555"
 var feedbacks = {};
 var length = 256;
 
-app.post('/post', function (req, res) {
+app.post('/post', function (req, res) { // receives in such a way that post?id=1111&nickname=Ted&data=1,2,3
 
     var data =  req.query.data,
     id = req.query.id,
@@ -27,6 +27,7 @@ app.post('/post', function (req, res) {
     else
 	res.send('OK');
 
+    io.sockets.emit('update', nickname);
     // update the data array
     if (data != null) {
 	if (gumball_data_array[nickname] == null) 
