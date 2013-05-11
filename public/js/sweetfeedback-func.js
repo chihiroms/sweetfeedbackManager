@@ -20,7 +20,7 @@ function updateGraph(canvas_nickname, data) {
     console.log(data);
 
     $(document).ready(function() {
-        canvas = $("#canvas_" + canvas_nickname);
+        canvas = $("#" + canvas_nickname);
         var c = canvas[0].getContext('2d'); 
 	//	c.scale(0.5, 0.5);
 
