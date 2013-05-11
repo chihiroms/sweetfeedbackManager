@@ -19,48 +19,48 @@ app.post('/post', function (req, res) { // receives in such a way that post?id=1
     id = req.query.id,
     nickname = req.query.nickname;
 
-    // if it has a feedback info, return it
-    if ((feedbacks[nickname] != null) && (feedbacks[nickname] != "0")) {
-	res.send(feedbacks[nickname]); 
-	feedbacks[nickname] = "0"; // reset
-    }
-    else
-	res.send('OK');
+    // if id is empty... forget about it
+    if (id != null) {
 
-    io.sockets.emit('update', nickname);
-/*
-    // update the data array
-    if (data != null) {
+	// nickname can be null. 
+	if (nickname == null) 
+	    nickname = id;
+
+	// if it has a feedback request, give it
+	if ((feedbacks[nickname] != null) && (feedbacks[nickname] != "0")) {
+	    res.send(feedbacks[nickname]); // A, C, or D
+	    feedbacks[nickname] = "0"; // reset
+	}
+	else
+	    res.send('OK');
+
+	// if the gumball machine has no sensor
+	if (data == null) 
+	    data = "0, 0, 0";
+	
+	// if this is the new gumball machine
 	if (gumball_data_array[nickname] == null) 
 	    gumball_data_array[nickname]=new Array();
 
+	// update the data array
 	for (i = gumball_data_array[nickname].length - 1; i > -1 ; i--) {
 	    if (i < length - 1)
 		gumball_data_array[nickname][i + 1] = gumball_data_array[nickname][i]
 	}
-
 	gumball_data_array[nickname][0] = data;	
-	io.sockets.emit('updategraph', nickname, gumball_data_array[nickname]);
+
+	// update interface 
+	io.sockets.emit('update', nickname, gumball_data_array[nickname]);
     }
-*/
+
 });
 
 app.post('/feedback', function (req, res) {
 
-    var type =  req.query.type,
+    var type =  req.query.type, // type must be A, C, or D
     id = req.query.id,
     nickname = req.query.nickname;
 
     // store feedback information
     feedbacks[nickname] = type;
 });
-
-/*
-io.sockets.on('connection', function (socket) {
-
-    socket.on('gmclicked', function(nickname){
-	feedbacks[nickname] = "candy";
-    });
-
-
-});*/

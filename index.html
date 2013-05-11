@@ -17,27 +17,27 @@
 var socket = io.connect('http://209.129.244.24:9993/');
 
 socket.on('connect', function(){
-    alert("You are connected.");
-    $('#connecting').html("You are online.");
+    $('#status').html("You are online.");
 });
 
-socket.on('update', function(nickname) {
-    alert("Hello " + nickname + " :)");
-});
 
-socket.on('updategraph', function(nickname, data) {
+// naming rule
+// <div id="div_nickname">
+//   <canvas id="canvas_nickname"></canvas>
+//   <div id="machine_nickname"></div>
+//</div>
 
-    var div_name = 'div_' + nickname;      
-    var canvas_name = 'graph_' + nickname;      
-    var gm_name = 'gm_' + nickname;
-
-    if (!$("#" + div_name).length) {
-	drawGraph(canvas_name, data);
+socket.on('update', function(nickname, data) {
+    
+    // update its graph
+    if (!$("#div_" + nickname).length) {
+//	updateGraph(canvas_name, data);
 //	updateGumball(div_name, data[0]);
     }
     else {
+	// if it is new gumball, create element first and update graph
 	createElements(nickname);
-//	var canvas_name = 'div_' + name;
+//	updateGraph(canvas_name, data);
 //	$('<canvas>').attr({id: canvas_name, class: "graph", width: 400 + 'px', height: 300 + 'px'}).css({}).insertAfter('.graph:last');
     }
 });
@@ -46,23 +46,18 @@ socket.on('updategraph', function(nickname, data) {
 function createElements(nickname) {
 
     var div_name = 'div_' + nickname;      
-    var canvas_name = 'graph_' + nickname;      
-    var gm_name = 'gm_' + nickname;
+    var canvas_name = 'canvas_' + nickname;      
+    var gm_name = 'machine_' + nickname;
 
-    $('.div_nickname').html(nickname);
-
+   
+    // create div
     $('<div>').attr({id: div_name, class: "div_nickname"}).css({}).insertAfter('.div_nickname:last');
-    $('<div>').attr({id: div_name, class: "div_nickname"}).css({}).insertAfter('.div_nickname:last');
-    $(div_name).html(nickname);
+    $("#" + div_name).html(nickname);
 
-    createGraph(name);
-}
-
-
-function createGraph (name) {
-    var canvas_name = 'graph_' + name;
+    // create canvas
     $('<canvas>').attr({id: canvas_name, class: "graph", width: 400 + 'px', height: 300 + 'px'}).css({}).insertAfter('.graph:last');
 }
+
 
 function createGumball (name, top, left) {
 
@@ -100,7 +95,7 @@ function initGumball (name) {
 <body>
 
 <div class="TTWForm-container">
-<div id="connecting"> Connecting... please wait for seconds.</div>
+<div id="status"> Connecting... please wait for seconds.</div>
 <div id="graphs">
 <div class="graph"></div>
 </div>

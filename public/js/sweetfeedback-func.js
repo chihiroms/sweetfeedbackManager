@@ -1,4 +1,4 @@
-function drawGraph(canvas, data) {
+function updateGraph(canvas, data) {
 
     var graph;
     var xPadding = 30;
