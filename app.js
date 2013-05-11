@@ -50,13 +50,13 @@ app.post('/feedback', function (req, res) {
 
     // store feedback information
     feedbacks[nickname] = type;
-}
+});
 
-
+/*
 io.sockets.on('connection', function (socket) {
 
     socket.on('gmclicked', function(nickname){
 	feedbacks[nickname] = "candy";
     });
 
-});
+});*/
