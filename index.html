@@ -42,7 +42,7 @@ socket.on('update', function(nickname, data) {
 function createElements(nickname) {
 
     // create div
-    $('<div>').attr({id: "div_" + nickname, class: "div_nickname"}).css({}).insertAfter('.div_nickname:last');
+    $('<div>').attr({id: "div_" + nickname, class: "div_nickname"}).insertAfter('.div_nickname:last');
     $("#div_" + nickname).append('<div class="TTWForm">');
 
     // create label
@@ -64,7 +64,7 @@ function feedback(nickname, type) {
     $.ajax({
         type: "POST",
         url: "/feedback",
-        data: "?nickname=" + nickname + "&type=" + type, 
+        data: "nickname=" + nickname + "&type=" + type, 
         success: function(data)
         {
             alert("Sent: " + data); 
