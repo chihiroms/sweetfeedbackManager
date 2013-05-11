@@ -46,13 +46,21 @@ function createElements(nickname) {
     var gm_name = 'machine_' + nickname;
    
     // create div
-    $('<div>').attr({id: div_name, class: "div_nickname"}).css({}).insertAfter('.div_nickname:last');
-    $("#" + div_name).html(nickname);
+    $('<div>').attr({id: "div_" + nickname, class: "div_nickname"}).css({}).insertAfter('.div_nickname:last');
+    $("#div_" + nickname).html(nickname);
 
     // create canvas
-    $('<canvas>').attr({id: canvas_name, class: "graph", width: 400 + 'px', height: 300 + 'px'}).css({}).insertAfter('.graph:last');
+    $("#div_" + nickname).add('<canvas width="400px" height="300px" id="canvas_' + nickname + '"></canvas>');
+    
+    // create feedback buttons
+    $("#div_" + nickname).add('<input type="button" onClick="feedback(' + nickname + ', A)" value="A">');
+    $("#div_" + nickname).add('<input type="button" onClick="feedback(' + nickname + ', C)" value="C">');
+    $("#div_" + nickname).add('<input type="button" onClick="feedback(' + nickname + ', D)" value="D">');
+    
 }
 
+function feedback(nickname, type) {
+}
 
 function createGumball (name, top, left) {
 
@@ -90,18 +98,13 @@ function initGumball (name) {
 <body>
 
 <div class="TTWForm-container">
-<div id="status"> Connecting... please wait for seconds.</div>
-<div class="div_nickname">
-</div>
-     
-     <form action="process_form.php" class="TTWForm" method="post" novalidate=""
-     enctype="multipart/form-data">
-          
-          
-          <div id="form-submit" class="field f_100 clearfix submit">
-               <input type="submit" value="Submit">
-          </div>
-     </form>
+    <div id="status"> Connecting... please wait for seconds.</div>
+    <div class="div_nickname"></div>
+         
+    <div id="form-submit" class="field f_100 clearfix submit">
+               <input type="button" value="Submit">
+    </div>
+
 </div>
 
 </body>
