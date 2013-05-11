@@ -61,6 +61,15 @@ function createElements(nickname) {
 }
 
 function feedback(nickname, type) {
+    $.ajax({
+        type: "POST",
+        url: "/feedback",
+        data: "?nickname=" + nickname + "&type=" + type, 
+        success: function(data)
+        {
+            alert("Sent: " + data); 
+        }
+    });
 }
 
 function createGumball (name, top, left) {

@@ -60,7 +60,6 @@ function updateGraph(canvas_nickname, data) {
 	$.each(data, function(key, value) {
 	    if (JSON.parse(value).sensor_1 != null)
 		c.lineTo(getXPixel(key), getYPixel(JSON.parse(value).sensor_1));
-	    //	    console.log( key + ":" + JSON.parse(value).sensor_1);
 	});
 	c.stroke();
 
@@ -71,7 +70,6 @@ function updateGraph(canvas_nickname, data) {
 	$.each(data, function(key, value) {
 	    if (JSON.parse(value).sensor_2 != null)
 		c.lineTo(getXPixel(key), getYPixel(JSON.parse(value).sensor_2));
-	    //	    console.log( key + ":" + JSON.parse(value).sensor_1);
 	});
 	c.stroke();
 
@@ -82,7 +80,6 @@ function updateGraph(canvas_nickname, data) {
 	$.each(data, function(key, value) {
 	    if (JSON.parse(value).sensor_3 != null)
 		c.lineTo(getXPixel(key), getYPixel(JSON.parse(value).sensor_3));
-	    //	    console.log( key + ":" + JSON.parse(value).sensor_1);
 	});
 	c.stroke();
     });
