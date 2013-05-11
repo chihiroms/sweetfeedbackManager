@@ -46,15 +46,18 @@ function createElements(nickname) {
     $("#div_" + nickname).append('<div class="TTWForm">');
 
     // create label
-    $("#div_" + nickname + " .TTWForm").html('<label>' + nickname + '</label>');
+    $("#div_" + nickname).append('<div class="c_1">');
+    $("#div_" + nickname + " .TTWForm" + " .c_1").html('<label>' + nickname + '</label>');
 
     // create canvas
-    $("#div_" + nickname + " .TTWForm").append('<canvas width="400px" height="300px" id="canvas_' + nickname + '"></canvas>');
+    $("#div_" + nickname).append('<div class="c_2">');
+    $("#div_" + nickname + " .TTWForm" + " .c_2").append('<canvas width="400px" height="300px" id="canvas_' + nickname + '"></canvas>');
     
     // create feedback buttons
-    $("#div_" + nickname + " .TTWForm").append('<div class="field f_25 clearfix submit"><input type="button" onClick="feedback(' + nickname + ', A)" value="A"></div>');
-    $("#div_" + nickname + " .TTWForm").append('<div class="field f_25 clearfix submit"><input type="button" onClick="feedback(' + nickname + ', C)" value="C"></div>');
-    $("#div_" + nickname + " .TTWForm").append('<div class="field f_25 clearfix submit"><input type="button" onClick="feedback(' + nickname + ', D)" value="D"></div>');
+    $("#div_" + nickname).append('<div class="c_3">');
+    $("#div_" + nickname + " .TTWForm" + " .c_3").append('<div class="field f_25 clearfix submit"><input type="button" onClick="feedback(' + nickname + ', A)" value="A"></div>');
+    $("#div_" + nickname + " .TTWForm" + " .c_3").append('<div class="field f_25 clearfix submit"><input type="button" onClick="feedback(' + nickname + ', C)" value="C"></div>');
+    $("#div_" + nickname + " .TTWForm" + " .c_3").append('<div class="field f_25 clearfix submit"><input type="button" onClick="feedback(' + nickname + ', D)" value="D"></div>');
 }
 
 function feedback(nickname, type) {
