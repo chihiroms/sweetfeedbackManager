@@ -31,11 +31,12 @@ socket.on('update', function(nickname, data) {
     
     // update its graph
     if (!$("#div_" + nickname).length) {
+	alert("welcome " + nickname);
 //	updateGraph(canvas_name, data);
 //	updateGumball(div_name, data[0]);
     }
     else {
-	alert("welcome " + nickname);
+//	alert("welcome " + nickname);
 	// if it is new gumball, create element first and update graph
 	createElements(nickname); 
 //	updateGraph(canvas_name, data);
