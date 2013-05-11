@@ -43,13 +43,15 @@ function createElements(nickname) {
 
     // create div
     $('<div>').attr({id: "div_" + nickname, class: "div_nickname"}).css({}).insertAfter('.div_nickname:last');
-    $("#div_" + nickname).html('<label>' + nickname + '</label>');
+    $("#div_" + nickname).append('<div class="TTWForm">');
+
+    // create label
+    $("#div_" + nickname + " .TTWForm").html('<label>' + nickname + '</label>');
 
     // create canvas
-    $("#div_" + nickname).append('<canvas width="400px" height="300px" id="canvas_' + nickname + '"></canvas>');
+    $("#div_" + nickname + " .TTWForm").append('<canvas width="400px" height="300px" id="canvas_' + nickname + '"></canvas>');
     
     // create feedback buttons
-    $("#div_" + nickname).append('<div class="TTWForm">');
     $("#div_" + nickname + " .TTWForm").append('<div class="field f_25 clearfix submit"><input type="button" onClick="feedback(' + nickname + ', A)" value="A"></div>');
     $("#div_" + nickname + " .TTWForm").append('<div class="field f_25 clearfix submit"><input type="button" onClick="feedback(' + nickname + ', C)" value="C"></div>');
     $("#div_" + nickname + " .TTWForm").append('<div class="field f_25 clearfix submit"><input type="button" onClick="feedback(' + nickname + ', D)" value="D"></div>');
