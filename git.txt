@@ -1,0 +1,10 @@
+ 1685  git clone https://github.com/chihiroms/sweetfeedbackManager.git
+ 1692  git diff
+ 1693  git status
+ 1694  git add
+ 1695  git add *
+ 1696  git commit -m "first commit"
+ 1698  git push
+ 1699  git remote add origin https://github.com/chihiroms/sweetfeedbackManager.git
+ 1700  git push -u origin master
+ 1701  git pull

@@ -1,5 +1,5 @@
 //http://psitsmike.com/2011/09/node-js-and-socket-io-chat-tutorial/
-//hello!
+
 var app = require('express').createServer()
 var io = require('socket.io').listen(app);
 app.use(require('express').static(__dirname + '/public'));
