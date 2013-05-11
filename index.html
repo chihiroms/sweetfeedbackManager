@@ -53,28 +53,27 @@ function createElements(nickname) {
     // create canvas
     $("#div_" + nickname + " .TTWForm").append('<div class="column">');
     $("#div_" + nickname + " .TTWForm" + " .column:last").append('<canvas width="400px" height="300px" id="canvas_' + nickname + '"></canvas>');
-
-    // create gumball machine
-    $("#div_" + nickname + " .TTWForm").append('<div class="column">');
-    $("#div_" + nickname + " .TTWForm" + " .column:last").append('<div id="machine_' + nickname + '"></div>');
-    createGumball('machine_' + nickname, 0, 0)
-  
-    
+   
     // create feedback buttons
     $("#div_" + nickname + " .TTWForm").append('<div class="column">');
     $("#div_" + nickname + " .TTWForm" + " .column:last").append('<div class="field f_25 clearfix submit"><input type="button" onClick="feedback(\'' + nickname + '\', \'A\')" value="A"></div>');
     $("#div_" + nickname + " .TTWForm" + " .column:last").append('<div class="field f_25 clearfix submit"><input type="button" onClick="feedback(\'' + nickname + '\', \'C\')" value="C"></div>');
     $("#div_" + nickname + " .TTWForm" + " .column:last").append('<div class="field f_25 clearfix submit"><input type="button" onClick="feedback(\'' + nickname + '\', \'D\')" value="D"></div>');
+
+    // create gumball machine
+    $("#div_" + nickname + " .TTWForm").append('<div class="column">');
+    $("#div_" + nickname + " .TTWForm" + " .column:last").append('<div id="machine_' + nickname + '"></div>');
+    createGumball('machine_' + nickname, 0, 0)
 }
 
 function createGumball (machine_nickname, top, left) {
     
-    $('<img>').attr({ id: "gmbody", src: "images/sweetfeedback/body.png" }).css({"position":"absolute", "top":"0px", "left":"0px"}).appendTo("#" + machine_nickname);
-    $('<img>').attr({ id: "cold", src: "images/sweetfeedback/hat.png" }).css({"position":"absolute", "top":"0px", "left":"0px"}).appendTo("#" + machine_nickname);
-    $('<img>').attr({ id: "hot", src: "images/sweetfeedback/sweat.png" }).css({"position":"absolute", "top":"0px", "left":"0px"}).appendTo("#" + machine_nickname);
-    $('<img>').attr({ id: "noisy", src: "images/sweetfeedback/headphone.png" }).css({"position":"absolute", "top":"0px", "left":"0px"}).appendTo("#" + machine_nickname);
-    $('<img>').attr({ id: "privacy", src: "images/sweetfeedback/mask.png" }).css({"position":"absolute", "top":"0px", "left":"0px"}).appendTo("#" + machine_nickname);
-    $('<img>').attr({ id: "bright", src: "images/sweetfeedback/sunglasses.png" }).css({"position":"absolute", "top":"0px", "left":"0px"}).appendTo("#" + machine_nickname);
+    $('<img>').attr({ id: "gmbody", src: "images/sweetfeedback/body.png" }).css({"top":"0px", "left":"0px"}).appendTo("#" + machine_nickname);
+    $('<img>').attr({ id: "cold", src: "images/sweetfeedback/hat.png" }).css({"top":"0px", "left":"0px"}).appendTo("#" + machine_nickname);
+    $('<img>').attr({ id: "hot", src: "images/sweetfeedback/sweat.png" }).css({"top":"0px", "left":"0px"}).appendTo("#" + machine_nickname);
+    $('<img>').attr({ id: "noisy", src: "images/sweetfeedback/headphone.png" }).css({"top":"0px", "left":"0px"}).appendTo("#" + machine_nickname);
+    $('<img>').attr({ id: "privacy", src: "images/sweetfeedback/mask.png" }).css({"top":"0px", "left":"0px"}).appendTo("#" + machine_nickname);
+    $('<img>').attr({ id: "bright", src: "images/sweetfeedback/sunglasses.png" }).css({"top":"0px", "left":"0px"}).appendTo("#" + machine_nickname);
 
     $("#" + machine_nickname + " #cold").hide();
     $("#" + machine_nickname + " #hot").hide();

@@ -47,7 +47,7 @@ function updateGraph(canvas_nickname, data) {
 
 	$.each(data, function(key, value) {
 	    //	    console.log( key + ":" + value);
-	    if (JSON.parse(value).sensor_0 != null)
+	    if (JSON.parse(value).sensor_0.length > 0)
 		c.lineTo(getXPixel(key), getYPixel(JSON.parse(value).sensor_0));
 
 	});
