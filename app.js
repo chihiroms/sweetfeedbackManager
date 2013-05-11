@@ -34,6 +34,7 @@ app.post('/post', function (req, res) { // receives in such a way that post?id=1
 	else
 	    res.send('OK');
 
+	console.log(data);
 	// if the gumball machine has no sensor
 	if (data == null) 
 	    data = "0, 0, 0";
@@ -58,9 +59,10 @@ app.post('/post', function (req, res) { // receives in such a way that post?id=1
 app.post('/feedback', function (req, res) {
 
     var type =  req.query.type, // type must be A, C, or D
-    id = req.query.id,
+    id = req.query.id, // NO NEED OF ID...
     nickname = req.query.nickname;
 
-    // store feedback information
-    feedbacks[nickname] = type;
+    if (nickname != null && type != null) {
+	feedbacks[nickname] = type;
+
 });
