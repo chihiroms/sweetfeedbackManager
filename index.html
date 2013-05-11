@@ -64,10 +64,9 @@ function feedback(nickname, type) {
     $.ajax({
         type: "POST",
         url: "/feedback?nickname=" + nickname + "&type=" + type, 
- //       data: "nickname=" + nickname + "&type=" + type, 
         success: function(data)
         {
-            alert("Sent: " + data); 
+            alert(data); 
         }
     });
 }

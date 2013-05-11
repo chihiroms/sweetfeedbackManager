@@ -64,6 +64,6 @@ app.post('/feedback', function (req, res) {
     if (nickname != null && type != null)
 	feedbacks[nickname] = type;
 
-    res.send("Thanks " + nickname + ", " + type);
+    res.send("Thanks. Sent: " + type + " to " + nickname);
 
 });
