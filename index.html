@@ -41,21 +41,17 @@ socket.on('update', function(nickname, data) {
 
 function createElements(nickname) {
 
-    var div_name = 'div_' + nickname;      
-    var canvas_name = 'canvas_' + nickname;      
-    var gm_name = 'machine_' + nickname;
-   
     // create div
     $('<div>').attr({id: "div_" + nickname, class: "div_nickname"}).css({}).insertAfter('.div_nickname:last');
     $("#div_" + nickname).html(nickname);
 
     // create canvas
-    $("#div_" + nickname).add('<canvas width="400px" height="300px" id="canvas_' + nickname + '"></canvas>');
+    $("#div_" + nickname).append('<canvas width="400px" height="300px" id="canvas_' + nickname + '"></canvas>');
     
     // create feedback buttons
-    $("#div_" + nickname).add('<input type="button" onClick="feedback(' + nickname + ', A)" value="A">');
-    $("#div_" + nickname).add('<input type="button" onClick="feedback(' + nickname + ', C)" value="C">');
-    $("#div_" + nickname).add('<input type="button" onClick="feedback(' + nickname + ', D)" value="D">');
+    $("#div_" + nickname).append('<input type="button" onClick="feedback(' + nickname + ', A)" value="A">');
+    $("#div_" + nickname).append('<input type="button" onClick="feedback(' + nickname + ', C)" value="C">');
+    $("#div_" + nickname).append('<input type="button" onClick="feedback(' + nickname + ', D)" value="D">');
     
 }
 
