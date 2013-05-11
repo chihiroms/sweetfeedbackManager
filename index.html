@@ -29,19 +29,13 @@ socket.on('connect', function(){
 
 socket.on('update', function(nickname, data) {
     
-    // update its graph
-    if (!$("#div_" + nickname).length) {
-	alert("welcome " + nickname);
-//	updateGraph(canvas_name, data);
-//	updateGumball(div_name, data[0]);
-    }
-    else {
-//	alert("welcome " + nickname);
-	// if it is new gumball, create element first and update graph
+    // // if it is new gumball, create element
+    if (!$("#div_" + nickname).length) 
 	createElements(nickname); 
-//	updateGraph(canvas_name, data);
-//	$('<canvas>').attr({id: canvas_name, class: "graph", width: 400 + 'px', height: 300 + 'px'}).css({}).insertAfter('.graph:last');
-    }
+
+    //	updateGraph(canvas_name, data);
+    //	updateGumball(div_name, data[0]);
+
 });
 
 
@@ -50,7 +44,6 @@ function createElements(nickname) {
     var div_name = 'div_' + nickname;      
     var canvas_name = 'canvas_' + nickname;      
     var gm_name = 'machine_' + nickname;
-
    
     // create div
     $('<div>').attr({id: div_name, class: "div_nickname"}).css({}).insertAfter('.div_nickname:last');
