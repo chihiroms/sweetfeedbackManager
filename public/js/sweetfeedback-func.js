@@ -16,13 +16,9 @@ function updateGraph(canvas_nickname, data) {
         return canvas.height() - (((canvas.height() - yPadding) / yMax) * val) - yPadding;
     }
 
-
-    console.log(data);
-
     $(document).ready(function() {
         canvas = $("#" + canvas_nickname);
         var c = canvas[0].getContext('2d'); 
-	//	c.scale(0.5, 0.5);
 
 	c.clearRect(0, 0, canvas.width(), canvas.height());
         c.lineWidth = 2;
@@ -51,7 +47,8 @@ function updateGraph(canvas_nickname, data) {
 
 	$.each(data, function(key, value) {
 	    //	    console.log( key + ":" + value);
-	    c.lineTo(getXPixel(key), getYPixel(JSON.parse(value).sensor_0));
+	    if (JSON.parse(value).sensor_0 != null)
+		c.lineTo(getXPixel(key), getYPixel(JSON.parse(value).sensor_0));
 
 	});
 	c.stroke();
@@ -61,7 +58,8 @@ function updateGraph(canvas_nickname, data) {
         c.moveTo(getXPixel(0), getYPixel(0));
 
 	$.each(data, function(key, value) {
-	    c.lineTo(getXPixel(key), getYPixel(JSON.parse(value).sensor_1));
+	    if (JSON.parse(value).sensor_1 != null)
+		c.lineTo(getXPixel(key), getYPixel(JSON.parse(value).sensor_1));
 	    //	    console.log( key + ":" + JSON.parse(value).sensor_1);
 	});
 	c.stroke();
@@ -71,7 +69,8 @@ function updateGraph(canvas_nickname, data) {
         c.moveTo(getXPixel(0), getYPixel(0));
 
 	$.each(data, function(key, value) {
-	    c.lineTo(getXPixel(key), getYPixel(JSON.parse(value).sensor_2));
+	    if (JSON.parse(value).sensor_2 != null)
+		c.lineTo(getXPixel(key), getYPixel(JSON.parse(value).sensor_2));
 	    //	    console.log( key + ":" + JSON.parse(value).sensor_1);
 	});
 	c.stroke();
@@ -81,7 +80,8 @@ function updateGraph(canvas_nickname, data) {
         c.moveTo(getXPixel(0), getYPixel(0));
 
 	$.each(data, function(key, value) {
-	    c.lineTo(getXPixel(key), getYPixel(JSON.parse(value).sensor_3));
+	    if (JSON.parse(value).sensor_3 != null)
+		c.lineTo(getXPixel(key), getYPixel(JSON.parse(value).sensor_3));
 	    //	    console.log( key + ":" + JSON.parse(value).sensor_1);
 	});
 	c.stroke();
