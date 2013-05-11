@@ -3,7 +3,7 @@
 var app = require('express').createServer()
 var io = require('socket.io').listen(app);
 app.use(require('express').static(__dirname + '/public'));
-app.listen(9999);
+app.listen(9993);
 
 app.get('/', function (req, res) {
     res.sendfile(__dirname + '/index.html');
