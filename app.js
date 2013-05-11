@@ -28,6 +28,7 @@ app.post('/post', function (req, res) { // receives in such a way that post?id=1
 	res.send('OK');
 
     io.sockets.emit('update', nickname);
+/*
     // update the data array
     if (data != null) {
 	if (gumball_data_array[nickname] == null) 
@@ -41,6 +42,7 @@ app.post('/post', function (req, res) { // receives in such a way that post?id=1
 	gumball_data_array[nickname][0] = data;	
 	io.sockets.emit('updategraph', nickname, gumball_data_array[nickname]);
     }
+*/
 });
 
 app.post('/feedback', function (req, res) {
