@@ -62,7 +62,7 @@ app.post('/feedback', function (req, res) {
     id = req.query.id, // NO NEED OF ID...
     nickname = req.query.nickname;
 
-    if (nickname != null && type != null) {
+    if (nickname != null && type != null)
 	feedbacks[nickname] = type;
 
 });
