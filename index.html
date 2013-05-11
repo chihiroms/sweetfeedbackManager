@@ -49,10 +49,11 @@ function createElements(nickname) {
     $("#div_" + nickname).append('<canvas width="400px" height="300px" id="canvas_' + nickname + '"></canvas>');
     
     // create feedback buttons
+    $("#div_" + nickname).append('<div class="TTWForm">');
     $("#div_" + nickname).append('<div class="field f_100 clearfix submit"><input type="button" onClick="feedback(' + nickname + ', A)" value="A"></div>');
     $("#div_" + nickname).append('<div class="field f_100 clearfix submit"><input type="button" onClick="feedback(' + nickname + ', C)" value="C"></div>');
     $("#div_" + nickname).append('<div class="field f_100 clearfix submit"><input type="button" onClick="feedback(' + nickname + ', D)" value="D"></div>');
-    
+    $("#div_" + nickname).append('<div>');
 }
 
 function feedback(nickname, type) {
