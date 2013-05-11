@@ -9,37 +9,51 @@ app.get('/', function (req, res) {
     res.sendfile(__dirname + '/index.html');
 });
 
-var received = {};
+var gumball_data_array = {}; // gumball_data_array["Ted"][0] = "11,323,555"
+var feedbacks = {};
 var length = 256;
+
 app.post('/post', function (req, res) {
 
     var data =  req.query.data,
     id = req.query.id,
     nickname = req.query.nickname;
 
-
-    if ((feedbacks[nickname] != null) && (feedbacks[nickname] == "candy")) {
-	res.send('candy'); feedbacks[nickname] = "0";
+    // if it has a feedback info, return it
+    if ((feedbacks[nickname] != null) && (feedbacks[nickname] != "0")) {
+	res.send(feedbacks[nickname]); 
+	feedbacks[nickname] = "0"; // reset
     }
     else
-	res.send('hello');
+	res.send('OK');
 
+    // update the data array
     if (data != null) {
-	if (received[nickname] == null) 
-	    received[nickname]=new Array();
+	if (gumball_data_array[nickname] == null) 
+	    gumball_data_array[nickname]=new Array();
 
-	for (i = received[nickname].length - 1; i > -1 ; i--) {
+	for (i = gumball_data_array[nickname].length - 1; i > -1 ; i--) {
 	    if (i < length - 1)
-		received[nickname][i + 1] = received[nickname][i]
+		gumball_data_array[nickname][i + 1] = gumball_data_array[nickname][i]
 	}
 
-	received[nickname][0] = data;	
-	io.sockets.emit('updategraph', nickname,  received[nickname]);
+	gumball_data_array[nickname][0] = data;	
+	io.sockets.emit('updategraph', nickname, gumball_data_array[nickname]);
     }
 });
 
+app.post('/feedback', function (req, res) {
 
-var feedbacks = {};
+    var type =  req.query.type,
+    id = req.query.id,
+    nickname = req.query.nickname;
+
+    // store feedback information
+    feedbacks[nickname] = type;
+}
+
+
+/*
 io.sockets.on('connection', function (socket) {
 
     socket.on('gmclicked', function(nickname){
@@ -47,3 +61,4 @@ io.sockets.on('connection', function (socket) {
     });
 
 });
+*/

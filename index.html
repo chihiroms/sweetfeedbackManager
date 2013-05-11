@@ -1,6 +1,17 @@
-<script src="/socket.io/socket.io.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-<script src="/func.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+    <script src="/js/sweetfeedback-func.js"></script>
+    <link href="css/style.css" media="screen" rel="stylesheet" type="text/css"/>
+    <link href="css/uniform.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.tools.js"></script>
+    <script type="text/javascript" src="js/jquery.uniform.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
 
 <script>
 var socket = io.connect('http://209.129.244.24:9999/');
@@ -18,17 +29,13 @@ socket.on('updategraph', function(nickname, data) {
     var gm_name = 'gm_' + nickname;
 
     if (!$("#" + div_name).length) {
-
 	drawGraph(canvas_name, data);
-
-	updateGumball(div_name, data[0]);
+//	updateGumball(div_name, data[0]);
     }
     else {
-      createElements(nickname);console.log("aa");
-    var canvas_name = 'div_' + name;
-    $('<canvas>').attr({id: canvas_name, class: "graph", width: 400 + 'px', height: 300 + 'px'}).css({}).insertAfter('.graph:last');
-
-
+	createElements(nickname);
+//	var canvas_name = 'div_' + name;
+//	$('<canvas>').attr({id: canvas_name, class: "graph", width: 400 + 'px', height: 300 + 'px'}).css({}).insertAfter('.graph:last');
     }
 });
 
@@ -70,12 +77,6 @@ function createGumball (name, top, left) {
 	$('<img>').attr({ id: "bright", src: "img/sunglasses.png" }).css({"position":"absolute", "top":"0px", "left":"0px"}).appendTo("#" + div_name);
 	$('<p>'+ name +'</p>').css({"position":"absolute", "top":"86px", "left":"85px", "background-color":"white"}).appendTo("#" + div_name);
 
-/*
-	$("#" + div_name).click(function() {
-	    alert("give chihiro candy?");
-	    socket.emit('gmclicked', name);
-	});
-*/
     }
 }
 
@@ -91,11 +92,39 @@ function initGumball (name) {
 }
 </script>
 
+	  
+</head>
+<body>
 
+<div class="TTWForm-container">
 <div id="connecting"> Connecting... please wait for seconds.</div>
 <div id="graphs">
 <div class="graph"></div>
 </div>
+     
+     <form action="process_form.php" class="TTWForm" method="post" novalidate=""
+     enctype="multipart/form-data">
+          
+          
+          <div id="form-submit" class="field f_100 clearfix submit">
+               <input type="submit" value="Submit">
+          </div>
+     </form>
+</div>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
 
 
 
