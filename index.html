@@ -29,11 +29,11 @@ socket.on('connect', function(){
 
 socket.on('update', function(nickname, data) {
     
-    // // if it is new gumball, create element
+    // if it is new gumball, create element
     if (!$("#div_" + nickname).length) 
 	createElements(nickname); 
 
-    //	updateGraph(canvas_name, data);
+    updateGraph("canvas_" + nickname, data);
     //	updateGumball(div_name, data[0]);
 
 });

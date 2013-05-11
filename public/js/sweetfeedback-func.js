@@ -1,4 +1,4 @@
-function updateGraph(canvas, data) {
+function updateGraph(canvas_nickname, data) {
 
     var graph;
     var xPadding = 30;
@@ -20,7 +20,7 @@ function updateGraph(canvas, data) {
     console.log(data);
 
     $(document).ready(function() {
-        canvas = $(canvas);
+        canvas = $("#_" + canvas_nickname);
         var c = canvas[0].getContext('2d'); 
 	//	c.scale(0.5, 0.5);
 
