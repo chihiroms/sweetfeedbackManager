@@ -53,12 +53,12 @@ app.post('/feedback', function (req, res) {
     feedbacks[nickname] = type;
 });
 
-
-io.sockets.on('connection', function (socket) {
 /*
+io.sockets.on('connection', function (socket) {
+
     socket.on('gmclicked', function(nickname){
 	feedbacks[nickname] = "candy";
     });
-*/
 
-});
+
+});*/
