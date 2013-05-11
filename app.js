@@ -53,12 +53,7 @@ app.post('/feedback', function (req, res) {
 }
 
 
-/*
 io.sockets.on('connection', function (socket) {
 
-    socket.on('gmclicked', function(nickname){
-	feedbacks[nickname] = "candy";
-    });
 
 });
-*/
