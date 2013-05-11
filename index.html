@@ -43,7 +43,7 @@ function createElements(nickname) {
 
     // create div
     $('<div>').attr({id: "div_" + nickname, class: "div_nickname"}).css({}).insertAfter('.div_nickname:last');
-    $("#div_" + nickname).html(nickname);
+    $("#div_" + nickname).html('<label>' + nickname + '</label>');
 
     // create canvas
     $("#div_" + nickname).append('<canvas width="400px" height="300px" id="canvas_' + nickname + '"></canvas>');
@@ -97,11 +97,6 @@ function initGumball (name) {
 
     <div id="status"> Connecting... please wait for seconds.</div>
     <div class="div_nickname"></div>
-    
-    <div class="TTWForm">
-    <div class="field f_100 clearfix submit">
-    <input type="submit" value="Submit">
-    </div></div>
 
 </div>
 
