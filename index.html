@@ -51,7 +51,7 @@ function createElements(nickname) {
 
     // create canvas
     $("#div_" + nickname + " .TTWForm").append('<div class="column">');
-    $("#div_" + nickname + " .TTWForm" + " .c_2").append('<canvas width="400px" height="300px" id="canvas_' + nickname + '"></canvas>');
+    $("#div_" + nickname + " .TTWForm" + " .column:last").append('<canvas width="400px" height="300px" id="canvas_' + nickname + '"></canvas>');
     
     // create feedback buttons
     $("#div_" + nickname + " .TTWForm").append('<div class="column">');
