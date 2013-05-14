@@ -46,10 +46,17 @@ function updateGraph(canvas_nickname, data) {
         c.moveTo(getXPixel(0), getYPixel(0));
 
 	$.each(data, function(key, value) {
-	    	    console.log( key + ":" + value);
-	   // if (JSON.parse(value).sensor_0 != null)
-		c.lineTo(getXPixel(key), getYPixel(JSON.parse(value).sensor_0));
+	    console.log( key + ":" + value);
 
+	    try
+	    {
+		c.lineTo(getXPixel(key), getYPixel(JSON.parse(value).sensor_0));
+	    }
+	    catch(e)
+	    {
+		// ignore
+	    }
+	  
 	});
 	c.stroke();
 
