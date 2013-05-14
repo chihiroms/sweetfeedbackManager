@@ -19,6 +19,8 @@ app.post('/post', function (req, res) { // receives in such a way that post?id=1
     id = req.query.id,
     nickname = req.query.nickname;
 
+    
+
     // if id is empty... forget about it
     if (id != null) {
 
@@ -33,7 +35,7 @@ app.post('/post', function (req, res) { // receives in such a way that post?id=1
 	}
 	else
 	    res.send('OK');
-	
+
 	// if the gumball machine has no sensor
 	if (data == null) 
 	    data = {"sensor_0":0,"sensor_1":0,"sensor_2":0,"timestamp":0};

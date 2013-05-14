@@ -47,16 +47,9 @@ function updateGraph(canvas_nickname, data) {
 
 	$.each(data, function(key, value) {
 	    console.log( key + ":" + value);
-
-	    try
-	    {
+	    if (IsJsonString(value))
 		c.lineTo(getXPixel(key), getYPixel(JSON.parse(value).sensor_0));
-	    }
-	    catch(e)
-	    {
-		// ignore
-	    }
-	  
+
 	});
 	c.stroke();
 
@@ -148,4 +141,13 @@ function updateGumball(div_name, value) {
 
     if (getCold((JSON.parse(value).sensor_2))) 
 	$(div_name + ' #cold').show();
+}
+
+function IsJsonString(str) {
+    try {
+        JSON.parse(str);
+    } catch (e) {
+        return false;
+    }
+    return true;
 }
