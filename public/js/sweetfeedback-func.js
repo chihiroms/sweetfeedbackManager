@@ -44,7 +44,7 @@ function updateGraph(canvas_nickname, data) {
         c.strokeStyle = '#FF009A';
         c.beginPath();
         c.moveTo(getXPixel(0), getYPixel(0));
-
+	console.log(data);
 	$.each(data, function(key, value) {
 	    console.log( key + ":" + value);
 	    if (IsJsonString(value))
