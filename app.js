@@ -78,5 +78,5 @@ app.post('/shake', function (req, res) {
 
     // update interface 
     io.sockets.emit('shaked', nickname);
-
+    res.send("OK");
 });
