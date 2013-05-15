@@ -69,3 +69,17 @@ app.post('/feedback', function (req, res) {
     res.send("Thanks. Sent: " + type + " to " + nickname);
 
 });
+
+
+app.post('/shake', function (req, res) {
+
+    var id = req.query.id, // NO NEED OF ID NOW...
+    nickname = req.query.nickname;
+
+    if (nickname != null && type != null)
+	feedbacks[nickname] = type;
+
+    // update interface 
+    io.sockets.emit('shaked', nickname);
+
+});

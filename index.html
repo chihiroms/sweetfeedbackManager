@@ -83,7 +83,11 @@ function createGumball (machine_nickname, top, left) {
 
     $("#" + machine_nickname + " #gmbody").css({"opacity": 0.4});
 }
-
+    
+socket.on('shaked', function(nickname) {
+    alert(nickname + " shaked the phone");
+});
+    
 function feedback(nickname, type) {
     $.ajax({
         type: "POST",
